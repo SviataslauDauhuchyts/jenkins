@@ -1,19 +1,20 @@
 pipeline {
     agent any
     stages {
-        stage('Stage 1') {
+        stage('Checkout') {
             steps {
-                echo 'Hello world!'
+                git(
+                  url: 'https://github.com/SviataslauDauhuchyts/ansible.git',
+                  credentialsId: 'bf6b6502-60f0-4015-b59a-57b2881590ef'
+                  )
             }
         }
-        stage('Stage 2') {
+        stage('Deploy') {
             steps {
-                echo 'Goodbye world!'
             }
         }
-        stage('Stage 3') {
+        stage('Test') {
             steps {
-                echo 'Test!'
             }
         }
     }
