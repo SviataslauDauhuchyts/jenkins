@@ -14,8 +14,8 @@ pipeline {
             steps {
               ansiColor('xterm') {
                 ansiblePlaybook(
-                  playbook: '$WORKSPACE/$JOB_NAME/ansible/test.yml',
-                  inventory: '$WORKSPACE/$JOB_NAME/inventories/hosts',
+                  playbook: '$WORKSPACE/ansible/test.yml',
+                  inventory: '$WORKSPACE/ansible/inventories/hosts',
                   colorized: true)
                 }
             }
