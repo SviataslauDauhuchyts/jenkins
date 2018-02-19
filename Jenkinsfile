@@ -20,9 +20,12 @@ pipeline {
                 }
             }
         }
-        stage('Test') {
+        stage('Terraform') {
             steps {
-                echo "Test stage"
+                tools {
+                    terraform "terraform-0.11.3"
+                    sh "terraform --version"
+                }
             }
         }
     }
