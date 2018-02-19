@@ -10,9 +10,14 @@ pipeline {
                 }
             }
         }
-        stage('Deploy') {
+        stage('Ansible') {
             steps {
-                echo "Deploy stage"
+              ansiColor('xterm') {
+                ansiblePlaybook(
+                  playbook: '${workspace}/ansible/test.yml',
+                  inventory: '${workspace}/inventories/hosts',
+                  colorized: true)
+                }
             }
         }
         stage('Test') {
