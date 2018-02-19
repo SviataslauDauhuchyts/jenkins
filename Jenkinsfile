@@ -1,12 +1,13 @@
-pipeline {
+spipeline {
     agent any
     stages {
         stage('Checkout') {
             steps {
-                git(
-                  url: 'https://github.com/SviataslauDauhuchyts/ansible.git',
-                  credentialsId: 'bf6b6502-60f0-4015-b59a-57b2881590ef'
-                  )
+                dir('anible') {
+                    git(
+                      url: 'https://github.com/SviataslauDauhuchyts/ansible.git'
+                      )
+                }
             }
         }
         stage('Deploy') {
