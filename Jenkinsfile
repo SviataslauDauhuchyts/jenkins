@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    tools {
+        terraform "terraform-0.11.3"
+    }
     stages {
         stage('Checkout') {
             steps {
@@ -22,10 +25,7 @@ pipeline {
         }
         stage('Terraform') {
             steps {
-                tools {
-                    terraform "terraform-0.11.3"
-                    sh "terraform --version"
-                }
+                sh "terraform --version"
             }
         }
     }
