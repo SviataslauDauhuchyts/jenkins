@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                dir('anible') {
+                dir('ansible') {
                     git(
                       url: 'https://github.com/SviataslauDauhuchyts/ansible.git'
                       )
